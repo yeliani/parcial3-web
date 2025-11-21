@@ -1,4 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { setUserRole } from "./UsuarioSlice";
 
 type login = {
   id: number;
@@ -14,21 +15,14 @@ const initialState: InitialState = {
 };
 
 export const toDoSlice = createSlice({
-  name: "Dato",
+  name: "login",
   initialState,
   
   reducers: {
 
-    saveTasks: (state, action: PayloadAction<Dato>) => {
-      state.datos = [...state.datos, action.payload];
+    setUserRole: (state: PayloadAction<"manager"|"User"> ) => {
+      if(state.user){state.user.role=action.payload}
     },
-    adddatos: (state, action: PayloadAction<Dato>) => {
-      state.datos = [...state.datos, action.payload];
-    },
-    deletdato: (state, action: PayloadAction<number| number>) => {
-      state.datos = state.datos.filter((dato)=>dato.id !== action.payload);
-    },
-    cre
 
   },
 });

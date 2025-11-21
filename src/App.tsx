@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ProtectedRoute from './componets/Ruta'
+import Login from './pages/Login'
 
 function App() {
   
@@ -7,16 +8,17 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route
-            path="/"
+           <Route path="/" element={<Login />} />
+             <Route path="/login" element={<Login />} />
+          <Route path="/"
             element={
               <ProtectedRoute>
-                <store />
+                < store/>
               </ProtectedRoute>
             }
           ></Route>
-          </>
+    </>
   )
-}
+};
 
 export default App
